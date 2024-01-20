@@ -12,7 +12,7 @@ public class Controller {
     @PostMapping(path = "/ticket", consumes = "application/json")
     public void postTicket(@RequestBody List<Product> data){
         Ticket ticket = new Ticket(data);
-        PrinterManager.printTicket(PrinterManager.getPrinter(), ticket);
+        PrinterManager.printTicket(PrinterManager.getPrinter(), ticket.toString());
     }
 
 }

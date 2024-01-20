@@ -37,15 +37,16 @@ public class Ticket {
 
     @Override
     public String toString() {
+
         StringBuilder result = new StringBuilder();
-        result.setLength(28);
+        result.setLength(48);
 
         result.append("Date: "+this.date.toString()+"\n");
         for(Product product : products){
             result.append(product.toString()+"\n");
         }
-        int spaces = 21 - String.valueOf(this.total).length();
-        result.append("total: "+" ".repeat(spaces)+this.total);
+        int spaces = 41 - String.valueOf(this.total).length();
+        result.append("total:"+" ".repeat(spaces)+this.total);
         return result.toString();
     }    
     
