@@ -1,4 +1,4 @@
-package com.printer.service;
+package com.printer.service.models;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -27,11 +27,9 @@ public class Product{
         StringBuilder result = new StringBuilder();
         result.setLength(48);
 
-        // Format the properties into a space of 28 characters
+        // Format the properties into a space of 48 characters
         result.append(String.format("%-30s", title.substring(0, Math.min(title.length(), 30))));
-        result.append(" ");
         result.append(String.format("x%-8s", String.valueOf(quantity).substring(0, Math.min(String.valueOf(quantity).length(), 8))));
-        result.append(" ");
         result.append(String.format("%-10s", String.valueOf(price).substring(0, Math.min(String.valueOf(price).length(), 10))));
         // Convert StringBuilder to String and return
         if(title.length() > 30){

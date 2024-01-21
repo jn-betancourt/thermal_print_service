@@ -6,6 +6,7 @@ import javax.print.PrintService;
 
 import com.github.anastaciocintra.escpos.EscPos;
 import com.github.anastaciocintra.output.PrinterOutputStream;
+import com.printer.service.models.Ticket;
 import com.github.anastaciocintra.escpos.Style;
 
 public class PrinterManager {

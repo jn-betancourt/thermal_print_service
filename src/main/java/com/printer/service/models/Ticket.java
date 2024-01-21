@@ -1,4 +1,4 @@
-package com.printer.service;
+package com.printer.service.models;
 
 import java.time.LocalDate;
 import java.util.Collection;
@@ -6,6 +6,7 @@ import java.util.Collection;
 public class Ticket {
     
     private final LocalDate date;
+    private final User client;
     private final Collection<Product> products;
     private final int total;
 
@@ -13,6 +14,14 @@ public class Ticket {
         this.date = LocalDate.now();
         this.products = products;
         this.total = calcularTotal();
+        this.client = null;
+    }
+
+    public Ticket(User client, Collection<Product> products) {
+        this.date = LocalDate.now();
+        this.products = products;
+        this.total = calcularTotal();
+        this.client = client;
     }
 
     private int calcularTotal(){
@@ -37,11 +46,13 @@ public class Ticket {
 
     @Override
     public String toString() {
-
         StringBuilder result = new StringBuilder();
         result.setLength(48);
+        result.append("Fecha: "+date.toString()+"\n");
 
-        result.append("Date: "+this.date.toString()+"\n");
+        if(client != null){
+            result.append(client.toString()+"\n");
+        }
         for(Product product : products){
             result.append(product.toString()+"\n");
         }

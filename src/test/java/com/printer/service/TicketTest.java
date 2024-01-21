@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import com.printer.service.models.Product;
+import com.printer.service.models.Ticket;
+
 public class TicketTest {
 
     @Test
