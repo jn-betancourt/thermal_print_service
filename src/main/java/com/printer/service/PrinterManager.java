@@ -21,7 +21,7 @@ public class PrinterManager {
             EscPos escpos = new EscPos(stream);
 
             escpos.writeLF(ticket.toString());
-            escpos.feed(4).cut(EscPos.CutMode.FULL);
+            escpos.feed(5).cut(EscPos.CutMode.FULL);
             escpos.close();
 
         }catch(IOException e){
@@ -34,7 +34,7 @@ public class PrinterManager {
             EscPos escpos = new EscPos(stream);
 
             escpos.writeLF(style, ticket.toString());
-            escpos.feed(4).cut(EscPos.CutMode.FULL);
+            escpos.feed(5).cut(EscPos.CutMode.FULL);
             escpos.close();
 
         }catch(IOException e){
@@ -46,7 +46,7 @@ public class PrinterManager {
             PrinterOutputStream stream = new PrinterOutputStream(printer);
             EscPos escpos = new EscPos(stream);
             escpos.writeLF(mensaje);
-            escpos.feed(4).cut(EscPos.CutMode.FULL);
+            escpos.feed(5).cut(EscPos.CutMode.FULL);
             escpos.close();
 
         }catch(IOException e){

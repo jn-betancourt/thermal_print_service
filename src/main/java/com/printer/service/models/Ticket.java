@@ -52,12 +52,14 @@ public class Ticket {
 
         if(client != null){
             result.append(client.toString()+"\n");
+            result.append("\n");
         }
         for(Product product : products){
             result.append(product.toString()+"\n");
         }
         int spaces = 41 - String.valueOf(this.total).length();
         result.append("total:"+" ".repeat(spaces)+this.total);
+        result.append("\n");
         return result.toString();
     }    
     

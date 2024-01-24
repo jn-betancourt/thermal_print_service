@@ -6,20 +6,23 @@ import com.fasterxml.jackson.databind.JsonNode;
 
 public class User {
     private String name;
-    private String number;
+    private String phone;
     private String address;
+    private String sendCost;
     
     @JsonCreator
-    public User(@JsonProperty("name") String name, @JsonProperty("number") String number, @JsonProperty("address") String address) {
+    public User(@JsonProperty("name") String name, @JsonProperty("phone") String phone, @JsonProperty("address") String address, @JsonProperty("sendCost") String cost) {
         this.name = name;
-        this.number = number;
+        this.phone = phone;
         this.address = address;
+        this.sendCost = cost;
     }
     @JsonCreator
     public User(JsonNode json) {
         this.name = json.get("name").asText();
-        this.number = json.get("number").asText();
+        this.phone = json.get("phone").asText();
         this.address = json.get("address").asText();
+        this.sendCost = json.get("sendCost").asText();
     }
 
     public String getName() {
@@ -30,12 +33,12 @@ public class User {
         this.name = name;
     }
 
-    public String getNumber() {
-        return number;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getAddress() {
@@ -53,9 +56,10 @@ public class User {
         
         user.append("nombre: "+this.name);
         user.append("\n");
-        user.append("numero: "+this.number);
+        user.append("numero: "+this.phone);
         user.append("\n");
         user.append("Direccion: "+String.format("%-37s", this.address.substring(0, Math.min(address.length(), 37))));
+        user.append("costo de envio: "+this.sendCost);
         if (this.address.length() > 37){
             user.append("\n"+this.address.substring(37, this.address.length()));
         }
